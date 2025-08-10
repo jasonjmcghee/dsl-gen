@@ -1,0 +1,38 @@
+pi = 3.1415926535;
+r = 2.5;
+area = pi * r^2;
+h = 10;
+volume = area * h;
+scale = 1e-1;
+scaled_area = area * scale;
+
+a = 5;
+b = 3;
+sum_diff = a + b - 2;
+avg = (a + b)/2;
+neg = -a;
+double_neg = - -a;
+mix = - (a - b) * +2;
+
+pow_right = 2^3^2;
+pow_grouped = (2^3)^2;
+
+temp_c = 25;
+temp_f = (temp_c * 9/5) + 32;
+
+tiny = 1.2e-3;
+big = 6.02e23;
+scaled_big = big * tiny;
+
+area;
+volume;
+scaled_area;
+sum_diff;
+avg;
+neg;
+double_neg;
+mix;
+pow_right;
+pow_grouped;
+temp_f;
+scaled_big;

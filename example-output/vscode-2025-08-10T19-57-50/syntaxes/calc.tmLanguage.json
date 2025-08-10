@@ -1,0 +1,197 @@
+{
+  "name": "calculator language",
+  "scopeName": "source.calc",
+  "fileTypes": [
+    "calc"
+  ],
+  "patterns": [
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#assignment-lhs"
+    },
+    {
+      "include": "#expression"
+    },
+    {
+      "include": "#semicolon"
+    }
+  ],
+  "repository": {
+    "expression": {
+      "patterns": [
+        {
+          "include": "#strings"
+        },
+        {
+          "include": "#comments"
+        },
+        {
+          "include": "#numbers"
+        },
+        {
+          "include": "#operators"
+        },
+        {
+          "include": "#parens"
+        },
+        {
+          "include": "#identifiers"
+        }
+      ]
+    },
+    "assignment-lhs": {
+      "name": "meta.assignment.calc",
+      "match": "\\b([A-Za-z_][A-Za-z0-9_]*)\\b\\s*(=)",
+      "captures": {
+        "1": {
+          "name": "variable.other.assignment.calc"
+        },
+        "2": {
+          "name": "keyword.operator.assignment.calc"
+        }
+      }
+    },
+    "numbers": {
+      "name": "constant.numeric.calc",
+      "match": "(?<![A-Za-z_])\\d+(?:\\.\\d+)?(?:[eE][+-]?\\d+)?(?![A-Za-z_])"
+    },
+    "identifiers": {
+      "name": "variable.other.calc",
+      "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b"
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.arithmetic.calc",
+          "match": "[+\\-*/^]"
+        },
+        {
+          "name": "keyword.operator.assignment.calc",
+          "match": "="
+        }
+      ]
+    },
+    "parens": {
+      "name": "meta.group.parens.calc",
+      "begin": "\\(",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.parens.begin.calc"
+        }
+      },
+      "end": "\\)",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.parens.end.calc"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#expression"
+        }
+      ]
+    },
+    "semicolon": {
+      "name": "punctuation.terminator.statement.calc",
+      "match": ";"
+    },
+    "comments": {
+      "patterns": [
+        {
+          "include": "#block-comment"
+        },
+        {
+          "name": "comment.line.double-slash.calc",
+          "begin": "//",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.calc"
+            }
+          },
+          "end": "$\\n?"
+        },
+        {
+          "name": "comment.line.number-sign.calc",
+          "begin": "#",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.calc"
+            }
+          },
+          "end": "$\\n?"
+        }
+      ]
+    },
+    "block-comment": {
+      "name": "comment.block.calc",
+      "begin": "/\\*",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.begin.calc"
+        }
+      },
+      "end": "\\*/",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.end.calc"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#block-comment"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.calc",
+          "begin": "\"",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.begin.calc"
+            }
+          },
+          "end": "\"",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.end.calc"
+            }
+          },
+          "patterns": [
+            {
+              "name": "constant.character.escape.calc",
+              "match": "\\\\([\\\\\"'abfnrtv]|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8}|[0-7]{1,3}|\\n)"
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.calc",
+          "begin": "'",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.begin.calc"
+            }
+          },
+          "end": "'",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.end.calc"
+            }
+          },
+          "patterns": [
+            {
+              "name": "constant.character.escape.calc",
+              "match": "\\\\([\\\\\"'abfnrtv]|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8}|[0-7]{1,3}|\\n)"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "calc-syntax",
+  "displayName": "calculator language Syntax",
+  "description": "calculator language language support (generated)",
+  "version": "0.1.0",
+  "publisher": "lang-gen",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "calc",
+        "aliases": [
+          "calculator language"
+        ],
+        "extensions": [
+          ".calc"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "calc",
+        "scopeName": "source.calc",
+        "path": "./syntaxes/calc.tmLanguage.json"
+      }
+    ]
+  }
+}
