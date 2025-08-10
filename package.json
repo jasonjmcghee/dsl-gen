@@ -1,0 +1,29 @@
+{
+  "name": "lang-gen",
+  "version": "1.0.0",
+  "description": "End-to-end DSL generator with grammar-constrained output",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "lang-gen": "./index.js"
+  },
+  "scripts": {
+    "postinstall": "./setup.sh",
+    "test": "node index.js --spec \"tiny calc with ints + - * / and parens\" --semantics \"evaluate to a number\" --sample \"1+2*3\""
+  },
+  "dependencies": {
+    "openai": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "dsl",
+    "lark",
+    "parser",
+    "generator",
+    "openai"
+  ],
+  "author": "",
+  "license": "MIT"
+}
