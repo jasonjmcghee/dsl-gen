@@ -1,3 +1,11 @@
+# Disclaimer
+
+This was made in a total of about 6 hours during the Shack15 GPT-5 hackathon.
+
+Maybe it will serve as useful to folks on a draft version of an interpreter or as inspiration for other projects.
+
+----
+
 # lang-gen
 
 End-to-end DSL generator with grammar-constrained output from OpenAI.
